@@ -4,7 +4,8 @@
   "private": true,
   "workspaces": [
     "apps/*",
-    "packages/*"
+    "packages/*",
+    "presentation/*"
   ],
   "scripts": {
     "build": "turbo run build",
@@ -13,7 +14,7 @@
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "devDependencies": {
-    "eslint-config-custom": "latest",
+    "eslint-config-mono": "latest",
     "prettier": "latest",
     "turbo": "latest"
   },

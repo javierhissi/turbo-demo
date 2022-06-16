@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <title>reveal.js</title>
+
+    <link rel="stylesheet" href="dist/reset.css" />
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <link rel="stylesheet" href="dist/theme/black.css" />
+    <link rel="stylesheet" href="assets/styles.css" />
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="plugin/highlight/monokai.css" />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section><span class="turbo-grad">TURBOREPO</span></section>
+
+        <section>
+          <section>What is a monorepo?</section>
+          <section class="section-top">
+            <div w3-include-html="./content/monorepo.html"></div>
+          </section>
+          <section class="section-top">
+            <div w3-include-html="./content/monorepo-topics.html"></div>
+          </section>
+        </section>
+        <section>
+          <section class="section-top" style="top: 0px">
+            <div w3-include-html="./content/yarn-workspaces.html"></div>
+            <div style="font-size: 30px; text-align: justify; font-style: italic; margin-top: 20px">
+              "Yarn workspaces are a way to set up your packages architecture in which you can setup
+              multiple packages.""
+            </div>
+          </section>
+          <section class="section-top" style="top: 0px">
+            <div w3-include-html="./content/yarn-workspaces-2.html"></div>
+          </section>
+          <section class="section-top" style="top: 0px">
+            <div w3-include-html="./content/yarn-workspaces.html"></div>
+            <div style="text-align: left">
+              <span
+                style="font-size: 24px; font-weight: bolder; font-style: italic; margin-left: 48px"
+                >package.json</span
+              >
+              <pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers>
+				{
+					"private": true,
+					"workspaces": ["workspace-a", "workspace-b"]
+				}
+			</code></pre>
+            </div>
+          </section>
+        </section>
+        <section>
+          <section class="section-top" style="top: 0px">
+            <div w3-include-html="./content/turbo-repo-1.html"></div>
+          </section>
+          <section>
+            <div style="text-align: left">
+              <span
+                style="font-size: 24px; font-weight: bolder; font-style: italic; margin-left: 48px"
+                >turbo.json configuration file example</span
+              >
+              <pre
+                data-id="code-animation"
+              ><code class="hljs" data-trim data-line-numbers style="    font-size: 14px;
+				height: 550px; max-height: inherit;
+			">
+			{
+				"$schema": "https://turborepo.org/schema.json",
+				"pipeline": {
+					"build": {
+						"dependsOn": ["^build"],
+						"outputs": [".next/**"]
+					},
+					"test": {
+						"dependsOn": ["build"],
+						"outputs": [],
+						"inputs": ["src/**/*.tsx", "src/**/*.ts", "test/**/*.ts", "test/**/*.tsx"]
+					},
+					"lint": {
+						"outputs": []
+					},
+					"deploy": {
+						"dependsOn": ["build", "test", "lint"],
+						"outputs": []
+					}
+				}
+			}
+			</code></pre>
+            </div>
+          </section>
+          <section class="section-top" style="top: 0px">
+            <div w3-include-html="./content/turbo-repo-2.html"></div>
+          </section>
+          <section class="section-top" style="top: 0px">
+            <div w3-include-html="./content/turbo-repo-3.html"></div>
+          </section>
+        </section>
+      </div>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script>
+      // More info about initialization & config:
+      // - https://revealjs.com/initialization/
+      // - https://revealjs.com/config/
+      Reveal.initialize({
+        hash: true,
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+      });
+    </script>
+    <script>
+      function includeHTML() {
+        var z, i, elmnt, file, xhttp;
+        /*loop through a collection of all HTML elements:*/
+        z = document.getElementsByTagName('*');
+        for (i = 0; i < z.length; i++) {
+          elmnt = z[i];
+          /*search for elements with a certain atrribute:*/
+          file = elmnt.getAttribute('w3-include-html');
+          if (file) {
+            /*make an HTTP request using the attribute value as the file name:*/
+            xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+              if (this.readyState == 4) {
+                if (this.status == 200) {
+                  elmnt.innerHTML = this.responseText;
+                }
+                if (this.status == 404) {
+                  elmnt.innerHTML = 'Page not found.';
+                }
+                /*remove the attribute, and call this function once more:*/
+                elmnt.removeAttribute('w3-include-html');
+                includeHTML();
+              }
+            };
+            xhttp.open('GET', file, true);
+            xhttp.send();
+            /*exit the function:*/
+            return;
+          }
+        }
+      }
+      includeHTML();
+    </script>
+  </body>
+</html>

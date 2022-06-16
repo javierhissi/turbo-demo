@@ -1,0 +1,79 @@
+.turbo-grad {
+  font-size: 80px;
+  color: transparent;
+  --tw-gradient-to: #3b82f6;
+  --tw-gradient-from: #ef4444;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(239 68 68/0));
+  box-sizing: border-box;
+  border: 0 solid #e5e7eb;
+  background-image: linear-gradient(to right, var(--tw-gradient-stops));
+  --shiki-color-text: #d1d1d1;
+  --shiki-token-constant: #79b8ff;
+  --shiki-token-string: #ffab70;
+  --shiki-token-comment: #6b737c;
+  --shiki-token-keyword: #f97583;
+  --shiki-token-parameter: #ff9800;
+  --shiki-token-function: #b392f0;
+  --shiki-token-string-expression: #4bb74a;
+  --shiki-token-punctuation: #bbb;
+  --shiki-token-link: #ffab70;
+  --nextra-primary-hue: 204deg;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.turbo-grad::after {
+  --tw-translate-x: 0;
+  --tw-translate-y: 0;
+  --tw-rotate: 0;
+  --tw-skew-x: 0;
+  --tw-skew-y: 0;
+  --tw-scale-x: 1;
+  --tw-scale-y: 1;
+  --tw-pan-x: ;
+  --tw-pan-y: ;
+  --tw-pinch-zoom: ;
+  --tw-scroll-snap-strictness: proximity;
+  --tw-ordinal: ;
+  --tw-slashed-zero: ;
+  --tw-numeric-figure: ;
+  --tw-numeric-spacing: ;
+  --tw-numeric-fraction: ;
+  --tw-ring-inset: ;
+  --tw-ring-offset-width: 0px;
+  --tw-ring-offset-color: #fff;
+  --tw-ring-color: rgba(59, 130, 246, 0.5);
+  --tw-ring-offset-shadow: 0 0 transparent;
+  --tw-ring-shadow: 0 0 transparent;
+  --tw-shadow: 0 0 transparent;
+  --tw-shadow-colored: 0 0 transparent;
+  --tw-blur: ;
+  --tw-brightness: ;
+  --tw-contrast: ;
+  --tw-grayscale: ;
+  --tw-hue-rotate: ;
+  --tw-invert: ;
+  --tw-saturate: ;
+  --tw-sepia: ;
+  --tw-drop-shadow: ;
+  --tw-backdrop-blur: ;
+  --tw-backdrop-brightness: ;
+  --tw-backdrop-contrast: ;
+  --tw-backdrop-grayscale: ;
+  --tw-backdrop-hue-rotate: ;
+  --tw-backdrop-invert: ;
+  --tw-backdrop-opacity: ;
+  --tw-backdrop-saturate: ;
+}
+
+.section-top {
+  top: 100px !important;
+}
+
+.bullet-mono {
+  color: #42affa;
+}
+.bullet-li-text > li {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
